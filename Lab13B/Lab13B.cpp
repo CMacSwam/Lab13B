@@ -10,41 +10,135 @@ int dayOfWeek(int month, int day, int year);
 
 
 int main() {
-	int month = 0;
+	string month;
 	int year = 1582;
 	int day = 0;
 
 	while (true) {
-		cout << "Enter a date  or Q to quit: ";
+		cout << "Enter a month and year or Q to quit: ";
 		cin >> month;
-		cin >> day;
 		cin >> year;
+		int inputMonth = 0;
 		if (!cin.fail()) {
-			switch (dayOfWeek(month, day, year)) {
-			case 1: cout << "Monday, "; break;
-			case 2:cout << "Tuesday, "; break;
-			case 3:cout << "Wednesday, "; break;
-			case 4:cout << "Thursday, "; break;
-			case 5:cout << "Friday, "; break;
-			case 6:cout << "Saturday, "; break;
-			case 7:cout << "Sunday, "; break;
+			
+			if (month == "January") inputMonth = 1;
+			else if (month == "Feburary") inputMonth = 2;
+			else if (month == "March") inputMonth = 3;
+			else if (month == "April") inputMonth = 4;
+			else if (month == "May") inputMonth = 5;
+			else if (month == "June") inputMonth = 6;
+			else if (month == "July") inputMonth = 7;
+			else if (month == "August") inputMonth = 8;
+			else if (month == "September") inputMonth = 9;
+			else if (month == "October") inputMonth = 10;
+			else if (month == "November") inputMonth = 11;
+			else if (month == "December") inputMonth = 12;
+
+			cout << month << " " << year << endl;
+			int days = daysInMonth(inputMonth, year);
+			string calendar[] = {"Su","Mo","Tu","We","Th","Fr","Sa","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23", "24","25","26","27","28","29","30","31"};
+			int dayLocation = dayOfWeek(inputMonth, 1, year);
+			for (int i = 0; i < 7; i++) {
+				cout << calendar[i] << " ";
 			}
-			switch (month) {
-			case 1: cout << "January " << day << ", " << year << endl;	break;
-			case 2: cout << "Feburary " << day << ", " << year << endl;	break;
-			case 3: cout << "March " << day << ", " << year << endl;	break;
-			case 4: cout << "April " << day << ", " << year << endl;	break;
-			case 5: cout << "May " << day << ", " << year << endl;	break;
-			case 6: cout << "June " << day << ", " << year << endl;	break;
-			case 7: cout << "July " << day << ", " << year << endl;	break;
-			case 8: cout << "August " << day << ", " << year << endl;	break;
-			case 9:	cout << "September " << day << ", " << year << endl;	break;
-			case 10: cout << "October " << day << ", " << year << endl;	break;
-			case 11: cout << "November " << day << ", " << year << endl;	break;
-			case 12:cout << "December " << day << ", " << year << endl;	break;
+			cout << endl;
+			int dayCounter = 0;
+			switch (dayLocation) {
+			case 1: cout << setw(5); dayCounter = 1;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						cout << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						cout << calendar[i] << "  ";
+					}
+					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+				break;
+			case 2:cout << setw(8); dayCounter = 2;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						cout << endl; 
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						cout << calendar[i] << "  ";
+					}
+					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+				break;
+			case 3:cout << setw(11); dayCounter = 3;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						cout << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						cout << calendar[i] << "  ";
+					}
+					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+				break;
+			case 4:cout << setw(14); dayCounter = 4;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						cout << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						cout << calendar[i] << "  ";
+					}
+					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+				break;
+			case 5:cout << setw(17); dayCounter = 5;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7){
+						cout << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						cout << calendar[i] << "  ";
+					}
+					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+				break;
+			case 6:cout << setw(20); dayCounter = 6;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						cout << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						cout << calendar[i] << "  ";
+					}
+					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+				break;
+			case 7:cout << setw(0); dayCounter = 7;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						cout << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						cout << calendar[i] << "  ";
+					}
+					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+				break;
 			}
 		}
 		else break;
+		cout << endl;
 	}
 }
 
