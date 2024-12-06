@@ -1,6 +1,8 @@
 #include <fstream>
 #include <iostream>
 #include <iomanip>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -19,6 +21,11 @@ int main() {
 		cin >> month;
 		cin >> year;
 		int inputMonth = 0;
+		cout << endl;
+
+		string filename = month.substr(0, 3) + to_string(year) + ".txt";
+		ofstream outfile (filename);
+
 		if (!cin.fail()) {
 			
 			if (month == "January") inputMonth = 1;
@@ -35,13 +42,21 @@ int main() {
 			else if (month == "December") inputMonth = 12;
 
 			cout << month << " " << year << endl;
+			outfile << month << " " << year << endl;
+
 			int days = daysInMonth(inputMonth, year);
 			string calendar[] = {"Su","Mo","Tu","We","Th","Fr","Sa","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23", "24","25","26","27","28","29","30","31"};
 			int dayLocation = dayOfWeek(inputMonth, 1, year);
+
 			for (int i = 0; i < 7; i++) {
 				cout << calendar[i] << " ";
 			}
 			cout << endl;
+			for (int i = 0; i < 7; i++) {
+				outfile << calendar[i] << " ";
+			}
+			outfile << endl;
+
 			int dayCounter = 0;
 			switch (dayLocation) {
 			case 1: cout << setw(4); dayCounter = 1;
@@ -54,6 +69,19 @@ int main() {
 						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+
+				outfile << setw(4); dayCounter = 1;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						outfile << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						outfile << " " << calendar[i] << " ";
+					}
+					else outfile << calendar[i] << " ";
 					dayCounter++;
 				}
 				break;
@@ -69,6 +97,19 @@ int main() {
 					else cout << calendar[i] << " ";
 					dayCounter++;
 				}
+
+				outfile << setw(7); dayCounter = 2;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						outfile << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						outfile << " " << calendar[i] << " ";
+					}
+					else outfile << calendar[i] << " ";
+					dayCounter++;
+				}
 				break;
 			case 3:cout << setw(10); dayCounter = 3;
 				for (int i = 7; i < days + 7; i++) {
@@ -80,6 +121,18 @@ int main() {
 						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+				outfile << setw(10); dayCounter = 3;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						outfile << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						outfile << " " << calendar[i] << " ";
+					}
+					else outfile << calendar[i] << " ";
 					dayCounter++;
 				}
 				break;
@@ -95,6 +148,18 @@ int main() {
 					else cout << calendar[i] << " ";
 					dayCounter++;
 				}
+				outfile << setw(13); dayCounter = 4;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						outfile << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						outfile << " " << calendar[i] << " ";
+					}
+					else outfile << calendar[i] << " ";
+					dayCounter++;
+				}
 				break;
 			case 5:cout << setw(16); dayCounter = 5;
 				for (int i = 7; i < days + 7; i++) {
@@ -106,6 +171,18 @@ int main() {
 						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
+					dayCounter++;
+				}
+				outfile << setw(16); dayCounter = 5;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						outfile << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						outfile << " " << calendar[i] << " ";
+					}
+					else outfile << calendar[i] << " ";
 					dayCounter++;
 				}
 				break;
@@ -121,6 +198,18 @@ int main() {
 					else cout << calendar[i] << " ";
 					dayCounter++;
 				}
+				outfile << setw(19); dayCounter = 6;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						outfile << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						outfile << " " << calendar[i] << " ";
+					}
+					else outfile << calendar[i] << " ";
+					dayCounter++;
+				}
 				break;
 			case 7:cout << setw(0); dayCounter = 7;
 				for (int i = 7; i < days + 7; i++) {
@@ -134,11 +223,24 @@ int main() {
 					else cout << calendar[i] << " ";
 					dayCounter++;
 				}
+				outfile << setw(0); dayCounter = 7;
+				for (int i = 7; i < days + 7; i++) {
+					if (dayCounter == 7) {
+						outfile << endl;
+						dayCounter = 0;
+					}
+					if (i < 16) {
+						outfile << " " << calendar[i] << " ";
+					}
+					else outfile << calendar[i] << " ";
+					dayCounter++;
+				}
 				break;
 			}
 		}
 		else break;
 		cout << endl;
+		cout << "\nOutput File: " << filename << endl;
 	}
 }
 
