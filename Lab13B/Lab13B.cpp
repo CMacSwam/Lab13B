@@ -44,79 +44,79 @@ int main() {
 			cout << endl;
 			int dayCounter = 0;
 			switch (dayLocation) {
-			case 1: cout << setw(5); dayCounter = 1;
+			case 1: cout << setw(4); dayCounter = 1;
 				for (int i = 7; i < days + 7; i++) {
 					if (dayCounter == 7) {
 						cout << endl;
 						dayCounter = 0;
 					}
 					if (i < 16) {
-						cout << calendar[i] << "  ";
+						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
 					dayCounter++;
 				}
 				break;
-			case 2:cout << setw(8); dayCounter = 2;
+			case 2:cout << setw(7); dayCounter = 2;
 				for (int i = 7; i < days + 7; i++) {
 					if (dayCounter == 7) {
 						cout << endl; 
 						dayCounter = 0;
 					}
 					if (i < 16) {
-						cout << calendar[i] << "  ";
+						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
 					dayCounter++;
 				}
 				break;
-			case 3:cout << setw(11); dayCounter = 3;
+			case 3:cout << setw(10); dayCounter = 3;
 				for (int i = 7; i < days + 7; i++) {
 					if (dayCounter == 7) {
 						cout << endl;
 						dayCounter = 0;
 					}
 					if (i < 16) {
-						cout << calendar[i] << "  ";
+						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
 					dayCounter++;
 				}
 				break;
-			case 4:cout << setw(14); dayCounter = 4;
+			case 4:cout << setw(13); dayCounter = 4;
 				for (int i = 7; i < days + 7; i++) {
 					if (dayCounter == 7) {
 						cout << endl;
 						dayCounter = 0;
 					}
 					if (i < 16) {
-						cout << calendar[i] << "  ";
+						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
 					dayCounter++;
 				}
 				break;
-			case 5:cout << setw(17); dayCounter = 5;
+			case 5:cout << setw(16); dayCounter = 5;
 				for (int i = 7; i < days + 7; i++) {
 					if (dayCounter == 7){
 						cout << endl;
 						dayCounter = 0;
 					}
 					if (i < 16) {
-						cout << calendar[i] << "  ";
+						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
 					dayCounter++;
 				}
 				break;
-			case 6:cout << setw(20); dayCounter = 6;
+			case 6:cout << setw(19); dayCounter = 6;
 				for (int i = 7; i < days + 7; i++) {
 					if (dayCounter == 7) {
 						cout << endl;
 						dayCounter = 0;
 					}
 					if (i < 16) {
-						cout << calendar[i] << "  ";
+						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
 					dayCounter++;
@@ -129,7 +129,7 @@ int main() {
 						dayCounter = 0;
 					}
 					if (i < 16) {
-						cout << calendar[i] << "  ";
+						cout << " " << calendar[i] << " ";
 					}
 					else cout << calendar[i] << " ";
 					dayCounter++;
